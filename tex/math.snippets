@@ -1,0 +1,186 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+context "math()"
+snippet _ñ "Subscript" iA
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet ^ñ "Superscript" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+snippet / "Fraction" i
+\\frac{${VISUAL}}{$1}$0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Symbol fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+context "math()"
+snippet '^.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i-=1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
+
+context "math()"
+snippet ñr "Parenthesis" iA
+\left( ${1:${VISUAL}} \right) $0
+endsnippet
+
+context "math()"
+snippet ñc "Braces" iA
+\left\\{ ${1:${VISUAL}} \right\\} $0
+endsnippet
+
+context "math()"
+snippet ñs "Square brackets" iA
+\left[ ${1:${VISUAL}} \right] $0
+endsnippet
+
+context "math()"
+snippet ñ< "Angled brackets" iA
+\langle ${1:${VISUAL}} \rangle $0
+endsnippet
+
+context "math()"
+snippet ñp "Pipes" iA
+\left| ${1:${VISUAL}} \right| $0
+endsnippet
+
+context "math()"
+snippet norm "Norm" iA
+\left\| ${1:${VISUAL}} \right\| $0
+endsnippet
+
+context "math()"
+snippet '[\s$(\[<\|][A-Za-z]{2}' "Latex math command" rwA
+`!p snip.rv = match.group(0)[0] + '\\' + match.group(0)[1:]`
+endsnippet
+
+context "math()"
+snippet != "Not equal" iA
+\neq
+endsnippet
+
+context "math()"
+snippet ~= "Similar or equal" iA
+\simeq
+endsnippet
+
+context "math()"
+snippet <= "Less than or equal to" iA
+\leq
+endsnippet
+
+context "math()"
+snippet >= "Grater than or equal to" iA
+\geq
+endsnippet
+
+priority 100
+context "math()"
+snippet -> "Implication ->" iA
+\to
+endsnippet
+
+priority 200
+context "math()"
+snippet <-> "Implication <->" iA
+\leftrightarrow
+endsnippet
+
+priority 100
+context "math()"
+snippet => "Implication =>" iA
+\Rightarrow
+endsnippet
+
+priority 200
+context "math()"
+snippet =<> "Iff <=>" iA
+\Leftrightarrow
+endsnippet
+
+context "math()"
+snippet times "Times" A
+\times
+endsnippet
+
+context "math()"
+snippet div "Division" A
+\div
+endsnippet
+
+context "math()"
+snippet · "Cdot" iA
+\cdot
+endsnippet
+
+context "math()"
+snippet +- "+-" A
+\pm
+endsnippet
+
+context "math()"
+snippet -+ "-+" A
+\mp
+endsnippet
+
+context "math()"
+snippet 0set "Empty set" iA
+\emptyset$0
+endsnippet
+
+context "math()"
+snippet \sum "Sum" i
+\sum_{${1:i=1}}^{${2:\infty}} $0
+endsnippet
+
+context "math()"
+snippet \prod "Prod" i
+\prod_{${1:i=1}}^{${2:\infty}} $0
+endsnippet
+
+context "math()"
+snippet \lim "Prod" i
+\lim_{${1:x \to \infty}} $0
+endsnippet
+
+priority 200
+context "math()"
+snippet \dpart "Partial derivate" i
+\frac{\partial${1:f}}{\partial${2:x}} $0
+endsnippet
+
+priority 200
+context "math()"
+snippet \dotint "Integral with dots" i
+\idotsint $0
+endsnippet
+
+priority 200
+context "math()"
+snippet \dint "Definite integral" i
+\int_{${1:-\infty}}^{${2:\infty}} $0
+endsnippet
