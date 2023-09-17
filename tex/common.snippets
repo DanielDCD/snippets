@@ -8,6 +8,10 @@ def env(name):
 	return x != '0' and y != '0'
 endglobal
 
+snippet dcl "Document class" bA
+\documentclass$2{$1}$0
+endsnippet
+
 snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
