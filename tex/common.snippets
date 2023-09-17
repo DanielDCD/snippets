@@ -273,26 +273,31 @@ snippet forall "For all" iA
 \forall
 endsnippet
 
+priority 100
 context "math()"
 snippet exis "Exists" iA
 \exists
 endsnippet
 
+priority 100
+context "math()"
+snippet -> "Implication ->" iA
+\to
+endsnippet
+
+priority 200
+context "math()"
+snippet <-> "Implication <->" iA
+\leftrightarrow
+endsnippet
+
+priority 100
 context "math()"
 snippet => "Implication =>" iA
 \Rightarrow
 endsnippet
 
-context "math()"
-snippet to "Implication ->" iA
-\to
-endsnippet
-
-context "math()"
-snippet bicond "Implication <->" iA
-\leftrightarrow
-endsnippet
-
+priority 200
 context "math()"
 snippet liff "Iff <=>" iA
 \Leftrightarrow
@@ -327,3 +332,4 @@ context "math()"
 snippet -+ "-+" A
 \mp
 endsnippet
+
