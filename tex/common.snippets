@@ -40,6 +40,56 @@ snippet toc "Insert table of contents" bA
 \tableofcontents
 endsnippet
 
+snippet chap "Start chapter" bA
+\chapter{$1}
+$0
+endsnippet
+
+snippet uchap "Start unnumbered chapter" bA
+\chapter*{$1}
+$0
+endsnippet
+
+snippet sec "Start section" bA
+\section{$1}
+$0
+endsnippet
+
+snippet usec "Start unnumbered section" bA
+\section*{$1}
+$0
+endsnippet
+
+snippet ssec "Start subsection" bA
+\subsection{$1}
+$0
+endsnippet
+
+snippet ussec "Start unnumbered subsection" bA
+\subsection*{$1}
+$0
+endsnippet
+
+snippet sssec "Start subsubsection" bA
+\subsubsection{$1}
+$0
+endsnippet
+
+snippet usssec "Start unnumbered subsubsection" bA
+\subsubsection*{$1}
+$0
+endsnippet
+
+snippet part "Start part" bA
+\part{$1}
+$0
+endsnippet
+
+snippet upart "Start unnumbered part" bA
+\part*{$1}
+$0
+endsnippet
+
 snippet ññ "Inline math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
