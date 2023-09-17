@@ -289,7 +289,7 @@ snippet supset "Superset" iA
 endsnippet
 
 context "math()"
-snippet in "Is member of" A
+snippet inn "Is member of" A
 \in
 endsnippet
 
@@ -451,5 +451,23 @@ endsnippet
 context "math()"
 snippet lim "Prod" iA
 \lim_{${1:x \to \infty}}$0
+endsnippet
+
+priority 100
+context "math()"
+snippet '(i)*int' "Integral" rwA
+\\`!p snip.rv = match.group(0)`
+endsnippet
+
+priority 200
+context "math()"
+snippet dotint "Integral with dots" iA
+\idotsint
+endsnippet
+
+priority 200
+context "math()"
+snippet dint "Definite integral" iA
+\int_{${1:-\infty}}^{${2:\infty}}$0
 endsnippet
 
