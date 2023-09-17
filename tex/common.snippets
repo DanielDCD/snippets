@@ -8,6 +8,10 @@ def env(name):
 	return x != '0' and y != '0'
 endglobal
 
+snippet pac "Package" b
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet
+
 snippet today "Date"
 `date +%F`
 endsnippet
