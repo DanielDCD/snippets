@@ -459,6 +459,18 @@ snippet '(i)*int' "Integral" rwA
 \\`!p snip.rv = match.group(0)`
 endsnippet
 
+priority 100
+context "math()"
+snippet part "Partial symbol" iA
+\partial
+endsnippet
+
+priority 200
+context "math()"
+snippet dpart "Partial derivate" iA
+\frac{\partial${1:f}}{\partial${2:x}}$0
+endsnippet
+
 priority 200
 context "math()"
 snippet dotint "Integral with dots" iA
