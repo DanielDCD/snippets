@@ -234,6 +234,46 @@ snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
 endsnippet
 
 context "math()"
+snippet left "\left" iA
+\left
+endsnippet
+
+context "math()"
+snippet right "\right" iA
+\right
+endsnippet
+
+context "math()"
+snippet ñr "Parenthesis" iA
+\left( ${1:${VISUAL}} \right) $0
+endsnippet
+
+context "math()"
+snippet ñc "Braces" iA
+\left\\{ ${1:${VISUAL}} \right\\} $0
+endsnippet
+
+context "math()"
+snippet ñs "Square brackets" iA
+\left[ ${1:${VISUAL}} \right] $0
+endsnippet
+
+context "math()"
+snippet ñ< "Angled brackets" iA
+\langle ${1:${VISUAL}} \rangle $0
+endsnippet
+
+context "math()"
+snippet ñp "Pipes" iA
+\left| ${1:${VISUAL}} \right| $0
+endsnippet
+
+context "math()"
+snippet norm "Norm" iA
+\left\| ${1:${VISUAL}} \right\| $0
+endsnippet
+
+context "math()"
 snippet not "Not" iA
 \not
 endsnippet
